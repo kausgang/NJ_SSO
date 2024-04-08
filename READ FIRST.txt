@@ -1,7 +1,7 @@
 after you issue vagrant up, login into vagrant machine with vagrant ssh command and issue these commands - 
 
-sudo apt-get update
-sudo apt-get install apache2
+sudo apt-get update -y
+sudo apt-get install apache2 -y
 cd /var/www
 sudo mv html html_ORIGINAL
 sudo ln -s /vagrant/html /var/www/html
@@ -9,4 +9,12 @@ cd /etc/apache2
 sudo mv apache2.conf apache2.conf_ORIGINAL
 sudo ln -s /vagrant/apache2.conf /etc/apache2/apache2.conf
 sudo apachectl stop
+sudo apachectl start
+
+forward host port 80 to guest port 80
+
+
+every command together - 
+
+sudo apt-get update -y;sudo apt-get install apache2 -y;cd /var/www;sudo mv html html_ORIGINAL;sudo ln -s /vagrant/html /var/www/html;cd /etc/apache2;sudo mv apache2.conf apache2.conf_ORIGINAL;sudo ln -s /vagrant/apache2.conf /etc/apache2/apache2.conf;sudo apachectl stop
 sudo apachectl start
